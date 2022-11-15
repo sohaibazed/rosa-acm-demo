@@ -1,6 +1,6 @@
-# Using Terraform with ROSA Bring-your-own-VPC
+# Using Terraform to create ACM Hub and Managed Clusters
 
-This repo contains a working example of how to use Terraform to provision a public ROSA cluster.
+This repo contains a working example of how to use Terraform to provision two public ROSA clusters acting as hub and managed clusters.
 
 ## Prerequisites
 
@@ -16,12 +16,14 @@ Additionally, Terraform repos often have a local variables file (`terraform.tfva
 
 ```hcl
 cat << EOF > terraform.auto.tfvars
-cluster_name = "test-cluster"
-compute_nodes = "3"  # Set to 3 for HA, 2 for single-AZ
+hub_cluster_name     = "acm-hub-cluster"
+maanged_cluster_name = "acm-managed-cluster"
+compute_nodes        = "2"  # Set to 3 for HA, 2 for single-AZ
 offline_access_token = "*********************" # Get from https://console.redhat.com/openshift/token/rosa/show
-rosa_version = "openshift-v4.11.9" # Needs to be a supported version by ROSA
+rosa_version         = "openshift-v4.11.9" # Needs to be a supported version by ROSA
 aws_region           = "us-east-2" # Optional, only if you're not selecting us-west-2 region
-availability_zones   = ["us-east-2a", "us-east-2b", "us-east-2c"] # Optional, only if you're not selecting us-west-2 region
+multi_az             = false
+availability_zones   = ["us-east-2a"] # Optional, only if you're not selecting us-west-2 region
 
 
 htpasswd_username = "kubeadmin"
