@@ -6,13 +6,13 @@ variable "aws_region" {
 variable "hub_cluster_name" {
   type        = string
   description = "The name of the ROSA cluster to create"
-  default     = "acm-hub-cluster"
+  default     = "acm-hub-clstr"
 }
 
 variable "managed_cluster_name" {
   type        = string
   description = "The name of the ROSA cluster to create"
-  default     = "acm-managed-cluster"
+  default     = "acm-mgd-clstr"
 }
 
 variable "rosa_version" {
