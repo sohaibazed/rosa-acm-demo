@@ -36,8 +36,8 @@ EOF
 1. Clone this repo down
 
    ```bash
-   git clone https://github.com/rh-mobb/tf_rosa_demo.git
-   cd tf_rosa_demo
+   git clone https://github.com/sohaibazed/rosa-acm-demo.git
+   cd rosa-acm-demo
    ```
 
 1. Initialize Terraform
@@ -56,11 +56,11 @@ This will create a Public ROSA cluster in STS mode, it will use a public subnet 
 2. Plan the Terraform configuration
 
    ```bash
-   terraform plan -out rosa.plan
+   terraform plan -out acm.plan
    ```
 
 3. Apply the Terraform plan
 
    ```bash
-   terraform apply rosa.plan
+   terraform apply acm.plan
    ```

@@ -28,3 +28,9 @@ data "aws_iam_user" "admin" {
   user_name = "osdCcsAdmin"
   count     = var.enable_sts ? 0 : 1
 }
+
+provider "kubernetes" {
+  host = jsondecode(shell_script.rosa_cluster.output["api"]).url
+  username = var.htpasswd_username
+  password = var.htpasswd_password
+}

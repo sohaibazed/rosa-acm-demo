@@ -98,3 +98,9 @@ resource "ocm_group_membership" "hub_cluster_htpasswd_admin" {
   group   = "cluster-admins"
   user    = var.htpasswd_username
 }
+
+resource "kubernetes_namespace" "test" {
+  metadata {
+    name = "test"
+  }
+}
